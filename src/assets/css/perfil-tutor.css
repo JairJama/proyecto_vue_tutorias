@@ -1,0 +1,404 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  height: 100vh;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #8b5cf6;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-section {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #dc2626;
+}
+
+/* Navigation */
+.nav-menu ul {
+  list-style: none;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.nav-item.active a,
+.nav-item a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-top: auto;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+/* Profile Card */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h2 {
+  font-size: 24px;
+  color: #1f2937;
+  margin-bottom: 5px;
+}
+
+.profile-info p {
+  color: #6b7280;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+.profile-info p:first-of-type {
+  color: #4b5563;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Sección */
+.section {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  font-size: 20px;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+/* Especialidades */
+.especialidades-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.especialidad-tag {
+  background: #e9d5ff;
+  color: #8b5cf6;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #d8b4fe;
+}
+
+/* Configuración */
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.config-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.config-btn:hover {
+  background: #f3f4f6;
+  border-color: #8b5cf6;
+}
+
+.config-btn i {
+  font-size: 20px;
+  color: #8b5cf6;
+  width: 24px;
+}
+
+.config-btn span {
+  font-size: 16px;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Botones */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: #8b5cf6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #7c3aed;
+}
+
+.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 20px 30px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  color: #374151;
+  font-size: 18px;
+}
+
+.close {
+  color: #9ca3af;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #374151;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.modal-footer {
+  padding: 20px 30px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+/* Form Fields */
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+
+/* Utilities */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+}
