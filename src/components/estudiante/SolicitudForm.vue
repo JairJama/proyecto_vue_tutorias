@@ -14,6 +14,30 @@ const showModal = ref(false)
 const fechaMin = ref('')
 const fechaMax = ref('')
 
+// Objeto con las materias disponibles
+const materias = {
+  'algebra-lineal': {
+    nombre: 'Álgebra Lineal',
+    descripcion: 'Matrices, vectores, sistemas',
+    icon: 'fa-calculator'
+  },
+  'calculo-multivariable': {
+    nombre: 'Cálculo Multivariable',
+    descripcion: 'Derivadas, integrales múltiples',
+    icon: 'fa-chart-line'
+  },
+  'fisica-1': {
+    nombre: 'Física I',
+    descripcion: 'Mecánica, cinemática',
+    icon: 'fa-atom'
+  },
+  'programacion': {
+    nombre: 'Programación',
+    descripcion: 'Algoritmos, estructuras',
+    icon: 'fa-code'
+  }
+}
+
 function logout() {
   if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
     localStorage.removeItem('currentUser')
@@ -144,35 +168,14 @@ function formatearFecha(fechaStr) {
             <div class="materias-grid">
               <div
                 class="materia-card"
-                v-for="(nombre, id) in {
-                  'algebra-lineal': 'Álgebra Lineal',
-                  'calculo-multivariable': 'Cálculo Multivariable',
-                  'fisica-1': 'Física I',
-                  'programacion': 'Programación'
-                }"
+                v-for="(materia, id) in materias"
                 :key="id"
                 :class="{ selected: selectedMateria === id }"
                 @click="selectMateria(id)"
               >
-                <i
-                  class="fas"
-                  :class="{
-                    'fa-calculator': id === 'algebra-lineal',
-                    'fa-chart-line': id === 'calculo-multivariable',
-                    'fa-atom': id === 'fisica-1',
-                    'fa-code': id === 'programacion'
-                  }"
-                ></i>
-                <h3>{{ nombre }}</h3>
-                <p>
-                  {{
-                    id === 'algebra-lineal'
-                      ? 'Matrices, vectores...'
-                      : id === 'programacion'
-                      ? 'Algoritmos, estructuras...'
-                      : ''
-                  }}
-                </p>
+                <i class="fas" :class="materia.icon"></i>
+                <h3>{{ materia.nombre }}</h3>
+                <p>{{ materia.descripcion }}</p>
               </div>
             </div>
           </div>

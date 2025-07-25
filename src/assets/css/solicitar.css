@@ -5,7 +5,9 @@
   box-sizing: border-box;
 }
 
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -53,7 +55,6 @@ html, body, #app {
   object-fit: contain;
   padding: 8px;
 }
-
 
 .nav-menu {
   flex: 1;
@@ -162,6 +163,8 @@ html, body, #app {
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: none;
+  width: 100%;
 }
 
 .form-section {
@@ -174,42 +177,66 @@ html, body, #app {
   margin-bottom: 20px;
 }
 
-/* Materias Grid */
+/* Materias Grid - CORREGIDO */
 .materias-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .materia-card {
   border: 2px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 20px 12px;
   text-align: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  min-height: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
 }
 
-.materia-card:hover,
+.materia-card:hover {
+  border-color: #8b5cf6;
+  background: #faf9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
 .materia-card.selected {
   border-color: #8b5cf6;
-  background: #f8f7ff;
+  background: #f3f0ff;
+  box-shadow: 0 0 0 1px #8b5cf6;
 }
 
 .materia-card i {
-  font-size: 30px;
+  font-size: 24px;
   color: #8b5cf6;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .materia-card h3 {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
   color: #1f2937;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  line-height: 1.2;
 }
 
 .materia-card p {
-  font-size: 14px;
+  font-size: 11px;
   color: #6b7280;
+  line-height: 1.3;
+  margin: 0;
 }
 
 /* DateTime Container */
@@ -242,6 +269,7 @@ html, body, #app {
   font-size: 14px;
   background: white;
   font-family: inherit;
+  transition: border-color 0.2s ease;
 }
 
 .form-field input:focus,
@@ -249,11 +277,17 @@ html, body, #app {
 .form-field textarea:focus {
   outline: none;
   border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 /* Botones */
 .btn {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -262,7 +296,9 @@ html, body, #app {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  transition: all 0.2s ease;
 }
 
 .btn-primary {
@@ -272,6 +308,7 @@ html, body, #app {
 
 .btn-primary:hover {
   background: #7c3aed;
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -286,6 +323,8 @@ html, body, #app {
 .btn-full {
   width: 100%;
   justify-content: center;
+  padding: 15px 24px;
+  font-size: 16px;
 }
 
 /* Modal */
@@ -331,8 +370,14 @@ html, body, #app {
   display: none;
 }
 
-/* Responsive */
-/* Responsive */
+/* Responsive - MEJORADO */
+@media (max-width: 1200px) {
+  .materias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-container {
     flex-direction: column;
@@ -360,9 +405,58 @@ html, body, #app {
 
   .materias-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .materia-card {
+    min-height: 120px;
+    padding: 20px 16px;
   }
 
   .datetime-container {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .materia-card {
+    min-height: 100px;
+    height: 100px;
+    padding: 16px 12px;
+  }
+
+  .materia-card h3 {
+    font-size: 13px;
+  }
+
+  .materia-card i {
+    font-size: 20px;
+  }
+}
+
+/* Forzar grid correcto */
+@media (min-width: 769px) {
+  .materias-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px !important;
+  }
+
+  .materia-card {
+    width: 100% !important;
+    max-width: none !important;
   }
 }
